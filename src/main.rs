@@ -3,7 +3,7 @@ fn score4(probability: f64) -> i32 {
     const HALF4: usize = SIZE4/3*2;
     const HADD4: usize = HALF4+1;
     const FULL4: usize = HALF4*2-1;
-    //                           0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6, 6.5,   7
+    //                            0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6, 6.5,   7
     static PTS4: [i32; SIZE4]  = [0,  5, 10,  15, 20,  30, 40,  60, 80, 120, 160, 240, 320, 400, 480];
     let n = (probability.log(4.0).abs()*2.0).round() as usize;
     let index = match n {
@@ -20,7 +20,7 @@ fn score3(probability: f64) -> i32 {
     const HALF3: usize = SIZE3/3*2;
     const HADD3: usize = HALF3+1;
     const FULL3: usize = HALF3*2-1;
-    //                           0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6
+    //                            0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6
     static PTS3: [i32; SIZE3]  = [0,  5, 10,  15, 20,  30, 40,  60, 80, 120, 160, 200, 240];
     let n = (probability.log(4.0).abs()*2.0).round() as usize;
     let index = match n {
