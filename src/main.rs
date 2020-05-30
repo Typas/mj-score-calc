@@ -6,7 +6,7 @@ fn score4(probability: f64) -> i32 {
     let n = (probability.log(4.0).abs()*2.0).round() as usize;
     let index = match n {
         1..=10 => n,
-        11..=LAST4 => 10+(n-10)/2,
+        11..=19 => 10+(n-10)/2,
         _ => LAST4,
     };
 
@@ -21,7 +21,7 @@ fn score3(probability: f64) -> i32 {
     let n = (probability.log(4.0).abs()*2.0).round() as usize;
     let index = match n {
         1..=8 => n,
-        9..=LAST3 => 8+(n-8)/2,
+        9..=17 => 8+(n-8)/2,
         _ => LAST3,
     };
 
