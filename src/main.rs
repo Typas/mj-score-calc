@@ -1,31 +1,31 @@
 fn score4(probability: f64) -> i32 {
-    const SIZE: usize = 19;
-    const LAST: usize = SIZE - 1;
-    //                       0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6, 6.5,   7, 7.5,   8, 8.5,   9
-    let pts: [i32; SIZE]  = [0,  5, 10,  10, 20,  30, 40,  60, 80, 120, 160, 160, 240, 240, 320, 320, 400, 400, 480];
-    let orign = (probability.log(4.0).abs()*2.0).round() as usize;
-    let n = match orign {
-        1..=LAST => orign,
-        _ => LAST,
+    const SIZE4: usize = 15;
+    const LAST4: usize = SIZE4 - 1;
+    //                           0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6, 6.5,   7
+    static PTS4: [i32; SIZE4]  = [0,  5, 10,  15, 20,  30, 40,  60, 80, 120, 160, 240, 320, 400, 480];
+    let n = (probability.log(4.0).abs()*2.0).round() as usize;
+    let index = match n {
+        1..=10 => n,
+        11..=LAST4 => 10+(n-10)/2,
+        _ => LAST4,
     };
-    
-    let pt = pts[n];
-    pt
+
+    PTS4[index]
 }
 
 fn score3(probability: f64) -> i32 {
-    const SIZE: usize = 17;
-    const LAST: usize = SIZE - 1;
-    //                       0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6, 6.5,   7, 7.5,   8
-    let pts: [i32; SIZE]  = [0,  5, 10,  10, 20,  30, 40,  60, 80,  80, 120, 120, 160, 160, 200, 200, 240];
-    let orign = (probability.log(4.0).abs()*2.0).round() as usize;
-    let n = match orign {
-        1..=LAST => orign,
-        _ => LAST,
+    const SIZE3: usize = 13;
+    const LAST3: usize = SIZE3 - 1;
+    //                           0, .5,  1, 1.5,  2, 2.5,  3, 3.5,  4, 4.5,   5, 5.5,   6
+    static PTS3: [i32; SIZE3]  = [0,  5, 10,  15, 20,  30, 40,  60, 80, 120, 160, 200, 240];
+    let n = (probability.log(4.0).abs()*2.0).round() as usize;
+    let index = match n {
+        1..=8 => n,
+        9..=LAST3 => 8+(n-8)/2,
+        _ => LAST3,
     };
-    
-    let pt = pts[n];
-    pt
+
+    PTS3[index]
 }
 
 fn main() {
